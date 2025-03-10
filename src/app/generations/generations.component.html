@@ -1,1 +1,10 @@
-<p>generations works!</p>
+
+
+<h1>Générations de pokémons :</h1>
+
+<ul>
+    <h2>LES DIFFERENTES GENERATIONS</h2>
+    @for(generation of generations; track generation){
+        <li>{{generation.name}}</li>
+    }
+    </ul>

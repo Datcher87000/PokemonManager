@@ -1,1 +1,44 @@
-<p>pokemons works!</p>
+
+<h1>Les six premiers Pokémons :</h1>
+
+<h2>Dans l'ordre du pokédex :</h2>
+<p>Trier par :</p>
+<!--<button (click)="orderByName()">Nom</button>-->
+<div id="liste">
+    @for (pokemon of tabPokemons; track pokemon) {
+        <div id="fiche">
+            <h3>{{pokemon.id}} : {{pokemon.name | titlecase}}</h3>
+            <h4>Description :</h4>
+            <p>{{pokemon.description}}</p>
+            <div id="pokemon">   
+                <div id="border">
+                    <p><strong>version normal</strong></p>
+                    <img [src]="pokemon.img" [alt]="pokemon.name" height="120px">
+                </div> 
+                <div id="border">
+                    <p><strong>version shiny</strong></p>
+                    <img [src]="pokemon.imgShiny" [alt]="pokemon.name" height="120px">
+                </div>
+            </div>
+            <div id="detail">
+                <!--  <li>Type : @for (type of pokemon.types; track type; let last = $last) {
+                                    {{type}}
+                                    @if (!last) {,}
+                                }
+                                </li>-->
+                @if (pokemon.taille) {
+                <li>Taille : {{pokemon.taille/10}} m</li>}
+                @else{
+                <li>Taille : N/A</li>
+                }
+                @if (pokemon.poids) {
+                <li>Poids : {{pokemon.poids/10}} kg</li>
+                }
+                @else{
+                <li>Poids : N/A</li>
+                }
+            </div>
+        </div>
+    }
+</div>
+
